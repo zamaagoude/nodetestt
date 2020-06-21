@@ -1,11 +1,8 @@
-node {
-    def app
+node("windows_10_pro_n_vs2017") {
+    
+	checkout scm
 
-    stage('Clone repository') {
-        /* Cloning the Repository to our Workspace */
-
-        checkout scm
-    }
+	def app
 
     stage('Build image') {
         /* This builds the actual image */
@@ -26,7 +23,7 @@ node {
 		*/
         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {
             app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
+            app.push("win")
             } 
                 echo "Trying to Push Docker Build to DockerHub"
     }
