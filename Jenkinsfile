@@ -1,8 +1,11 @@
-node("windows_10_pro_n_vs2017") {
-    
-	checkout scm
+node {
+    def app
 
-	def app
+    stage('Clone repository') {
+        /* Cloning the Repository to our Workspace */
+
+        checkout scm
+    }
 
     stage('Build image') {
         /* This builds the actual image */
