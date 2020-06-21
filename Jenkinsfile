@@ -10,7 +10,7 @@ node {
     stage('Build image') {
         /* This builds the actual image */
 
-        app = docker.build("zammagoude/nodeapp1")
+        app = docker.build("zammagoude/nodeapp1:win -f docker-windows/Dockerfile .")
     }
 
     stage('Test image') {
